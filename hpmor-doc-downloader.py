@@ -246,7 +246,7 @@ def complete_unifier_pathless(chapter_dict):
         for element in other_doc.element.body:
             first_doc.element.body.append(element)
 
-        print('chapter ' + other + ' merged')
+        print('chapter ' + other[-8:-5] + ' merged')
 
     first_doc.save(unified_file_name + file_format)
 
@@ -258,3 +258,4 @@ def complete_unifier_pathless(chapter_dict):
 ########
 
 complete_unifier_pathless(chapters_dict)
+press = input("\nProcess complete\nPress any key to close...")
