@@ -159,7 +159,7 @@ def single_downloader(file_id, file_name, destination):
     r = requests.get(url, allow_redirects=True)
 
     # saving the file
-    open(destination + '\\' + file_name + file_format, 'wb').write(r.content)
+    open(destination + os.sep + file_name + file_format, 'wb').write(r.content)
     print('chapter ' + str(file_name) + ' downloaded')
 
 
@@ -182,7 +182,7 @@ def complete_downloader_pathless(chapter_dict):
 
     # getting the absolute path of the current folder and adding the new folder to create
     new_path = os.path.dirname(os.path.abspath(__file__))
-    new_path = new_path + '\\' + new_folder_name
+    new_path = new_path + os.sep + new_folder_name
 
     if not os.path.exists(new_path):
         os.makedirs(new_path)
@@ -195,7 +195,7 @@ def complete_downloader_pathless(chapter_dict):
 
     for key, value in chapter_dict.items():
         single_downloader(value, key, new_path)
-        files.append(new_path + '\\' + key + file_format)
+        files.append(new_path + os.sep + key + file_format)
 
     print('\nall chapters downloaded successfully\n')
     return files
